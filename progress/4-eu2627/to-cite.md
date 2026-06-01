@@ -29,7 +29,8 @@
    https://doi.org/10.15587/1729-4061.2017.96662
 
 6. Lakhno, V., Tkach, Y., Petrenko, T., Zaitsev, S., & Bazylevych, V. (2016).
-   Development of adaptive expert system of information security using a procedure of clustering the attributes of anomalies and cyber attacks. Eastern-European Journal of Enterprise Technologies, 6(9(84), 32–44.
+   Development of adaptive expert system of information security using a procedure of clustering the attributes of anomalies and cyber attacks.
+   Eastern-European Journal of Enterprise Technologies, 6(9(84), 32–44.
    https://doi.org/10.15587/1729-4061.2016.85600
 
 7. Skliarenko Оlena, Pashko Аnatolii, Lytvynenko Leonid, Kolodinska Yanina (2025)
