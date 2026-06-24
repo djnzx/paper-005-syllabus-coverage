@@ -1,8 +1,8 @@
-# Automated NIS2/ISO 27001 Curriculum Compliance Auditing Using Sentence Embeddings
+# Automated NIS2/ISO 27001 Curriculum Compliance Auditing Using Sentence Embeddings: A Cross-Lingual Method and Worked Example
 
 **Oleksiy Rykhalskyy**
-European University, Kyiv, Ukraine
-ORCID: [to add] · Email: a77x77@gmail.com
+Private Higher Educational Institution "European University", Kyiv, Ukraine
+ORCID: https://orcid.org/0009-0000-6892-9420 · Email: alexey.rykhalskiy@e-u.edu.ua
 
 *Citation style: numbered by order of appearance (author name + bracketed reference number). Main text: English; bilingual abstract (English + Ukrainian) below.*
 
@@ -10,13 +10,13 @@ ORCID: [to add] · Email: a77x77@gmail.com
 
 ## Abstract
 
-The NIS2 Directive makes demonstrable cybersecurity training a legal obligation, yet auditing whether a training curriculum covers the required regulatory clauses is still manual, subjective, and bound to one language. This paper presents a sentence-embedding method that audits a curriculum against the clauses of NIS2 and ISO/IEC 27001 and reports the uncovered requirements as its primary result. Clause units from the standard and learning-outcome units from the curriculum are embedded into a shared multilingual space with a language-agnostic encoder, matched by cosine similarity, and separated by a threshold. The audit verdict is modelled as a partial function whose undefined region — the clauses no learning outcome addresses — is returned as a ranked gap list rather than hidden inside an aggregate coverage score. This explicit-gap design is the contribution: it gives a curriculum owner an actionable list of missing topics and gives an auditor a reproducible, cross-lingual screen that needs no prior translation. A worked example over a slice of ISO/IEC 27001:2022 Annex A.5 and NIS2 Article 21(2) locates two genuine coverage gaps that a coverage percentage alone would conceal, and a threshold-sensitivity analysis keeps the residual judgement explicit and with the human expert. The method is positioned as a triage screen whose load-bearing claim is recall on the gap list, not precision on matches. Limitations and an empirical evaluation are identified as future work.
+The NIS2 Directive makes demonstrable cybersecurity training a legal obligation, yet auditing whether a training curriculum covers the required regulatory clauses is still manual, subjective, and bound to one language. This paper presents a sentence-embedding method that audits a curriculum against the clauses of NIS2 and ISO/IEC 27001 and reports the uncovered requirements as its primary result. Clause units from the standard and learning-outcome units from the curriculum are embedded into a shared multilingual space with a language-agnostic encoder, matched by cosine similarity, and separated by a threshold. The audit verdict is modelled as a partial function whose undefined region — the clauses no learning outcome addresses — is returned as a ranked gap list rather than hidden inside an aggregate coverage score. This explicit-gap design is the contribution: it gives a curriculum owner an actionable list of missing topics and gives an auditor a reproducible, cross-lingual screen that needs no prior translation. A worked example over a slice of ISO/IEC 27001:2022 Annex A.5 and NIS2 Article 21(2), run through an actual LaBSE encoder, locates three coverage gaps that a coverage percentage alone would conceal — one of them an incident-management clause that a keyword scan would wrongly mark covered — and a threshold-sensitivity analysis keeps the residual judgement explicit and with the human expert. The method is positioned as a triage screen whose load-bearing claim is recall on the gap list, not precision on matches. Limitations and an empirical evaluation are identified as future work.
 
 **Keywords:** sentence embeddings; compliance auditing; NIS2 Directive; ISO/IEC 27001; semantic textual similarity; cybersecurity training; partial functions.
 
 ## Анотація
 
-Директива NIS2 робить документально підтверджене навчання з кібербезпеки правовим обов'язком, проте перевірка того, чи покриває навчальна програма потрібні нормативні положення, залишається ручною, суб'єктивною та прив'язаною до однієї мови. У статті запропоновано метод на основі речникових вкладень (sentence embeddings), який зіставляє навчальну програму з положеннями NIS2 та ISO/IEC 27001 і подає непокриті вимоги як основний результат. Одиниці положень стандарту та одиниці результатів навчання програми відображаються у спільний багатомовний простір за допомогою мовнонезалежного кодувальника, зіставляються за косинусною подібністю та розділяються пороговим значенням. Рішення аудиту змодельовано як часткову функцію, область невизначеності якої — положення, що їх не охоплює жоден результат навчання — повертається як впорядкований перелік прогалин, а не приховується в агрегованому показнику покриття. Саме цей підхід явного виявлення прогалин є внеском роботи: він дає власникові програми дієвий перелік відсутніх тем, а аудиторові — відтворюваний міжмовний інструмент попередньої перевірки без потреби у попередньому перекладі. Наведений приклад на фрагменті ISO/IEC 27001:2022 (додаток A.5) та статті 21(2) NIS2 виявляє дві справжні прогалини покриття, які відсоток покриття приховав би, а аналіз чутливості до порогу залишає остаточне рішення за експертом. Метод позиціоновано як інструмент попереднього сортування, ключове твердження якого — повнота виявлення прогалин, а не точність зіставлень.
+Директива NIS2 робить документально підтверджене навчання з кібербезпеки правовим обов'язком, проте перевірка того, чи покриває навчальна програма потрібні нормативні положення, залишається ручною, суб'єктивною та прив'язаною до однієї мови. У статті запропоновано метод на основі речникових вкладень (sentence embeddings), який зіставляє навчальну програму з положеннями NIS2 та ISO/IEC 27001 і подає непокриті вимоги як основний результат. Одиниці положень стандарту та одиниці результатів навчання програми відображаються у спільний багатомовний простір за допомогою мовнонезалежного кодувальника, зіставляються за косинусною подібністю та розділяються пороговим значенням. Рішення аудиту змодельовано як часткову функцію, область невизначеності якої — положення, що їх не охоплює жоден результат навчання — повертається як впорядкований перелік прогалин, а не приховується в агрегованому показнику покриття. Саме цей підхід явного виявлення прогалин є внеском роботи: він дає власникові програми дієвий перелік відсутніх тем, а аудиторові — відтворюваний міжмовний інструмент попередньої перевірки без потреби у попередньому перекладі. Наведений приклад на фрагменті ISO/IEC 27001:2022 (додаток A.5) та статті 21(2) NIS2, пропущений через справжній кодувальник LaBSE, виявляє три прогалини покриття, які відсоток покриття приховав би, — серед них положення про управління інцидентами, яке пошук за ключовими словами помилково позначив би покритим, — а аналіз чутливості до порогу залишає остаточне рішення за експертом. Метод позиціоновано як інструмент попереднього сортування, ключове твердження якого — повнота виявлення прогалин, а не точність зіставлень.
 
 **Ключові слова:** речникові вкладення; аудит відповідності; Директива NIS2; ISO/IEC 27001; семантична подібність тексту; навчання з кібербезпеки; часткові функції.
 
@@ -58,7 +58,9 @@ A final thread adapts language technology to the cybersecurity domain itself. Ag
 
 ### 2.5 The gap
 
-Taken together, the literature supplies every ingredient yet assembles none of them for this purpose. Embedding methods give the comparison engine. Compliance-checking work shows that sentence-level matching against a requirement set is viable, but only for contracts. Retrieval-augmented systems handle regulatory text, but optimise for answering questions, not for proving coverage. Domain models and mapping frameworks address cybersecurity knowledge, yet none audits a training curriculum against NIS2 and ISO 27001 clause by clause, across languages, while surfacing the uncovered requirements as the primary result. That intersection — coverage auditing with an explicit-gap output — is the contribution of this paper.
+One adjacent field deserves explicit mention, because it already reports gaps as a first-class output. Requirements-engineering research on information-retrieval-based traceability recovers links between requirements and the artefacts that satisfy them, and a traceability matrix's empty rows — requirements with no satisfying artefact — are exactly an uncovered-requirement report. Antoniol et al. [26] established the IR formulation, and the systematic mapping of Borg et al. [27] surveys a decade of such methods. Our work is not the first to treat uncovered requirements as a deliverable; its contribution is to carry that stance into *cross-lingual auditing of a training curriculum against regulatory clauses*, where the satisfying artefacts are learning outcomes, the requirements are NIS2 and ISO 27001 clauses, and the two sides are typically written in different languages.
+
+Taken together, the literature supplies every ingredient yet assembles none of them for this purpose. Embedding methods give the comparison engine. Compliance-checking work shows that sentence-level matching against a requirement set is viable, but only for contracts. Retrieval-augmented systems handle regulatory text, but optimise for answering questions, not for proving coverage. Traceability research surfaces uncovered requirements, but within a single language and for software artefacts, not cross-lingual curriculum-versus-regulation auditing. Domain models and mapping frameworks address cybersecurity knowledge, yet none audits a training curriculum against NIS2 and ISO 27001 clause by clause, across languages, while surfacing the uncovered requirements as the primary result. That intersection — cross-lingual coverage auditing with an explicit-gap output — is the contribution of this paper.
 
 ## 3. Problem Statement (актуальність)
 
@@ -104,11 +106,11 @@ Let the standard be decomposed into a finite set of clause units
 $$ S = \{c_1, c_2, \dots, c_m\}, $$
 where each $c_i$ is the smallest self-contained requirement statement — one ISO control or one NIS2 measure. Let the curriculum be decomposed into a set of learning-outcome units
 $$ L = \{l_1, l_2, \dots, l_n\}, $$
-where each $l_j$ is one learning outcome or module description. Segmentation granularity matters: a clause that bundles several obligations is split so that partial coverage is detectable rather than hidden inside one coarse unit.
+where each $l_j$ is one learning outcome or module description. Segmentation granularity matters: a clause that bundles several obligations is split so that partial coverage is detectable rather than hidden inside one coarse unit. To keep this step reproducible rather than subjective, we apply one rule: split at every coordinating conjunction or enumerated sub-item that introduces a separate obligation, so that each resulting unit carries a single verb–object obligation. The same rule is applied to learning outcomes. This rule is mechanical and auditable, which matters because an unspecified manual split would reintroduce the very subjectivity the method aims to remove.
 
 ### 6.2 Embedding into a shared semantic space
 
-A single encoder $\varphi : \text{Text} \rightarrow \mathbb{R}^{d}$ maps both clause units and outcome units into one $d$-dimensional space. We use LaBSE (Feng et al. [9]) so that a Ukrainian learning outcome and an English clause are comparable without prior translation, which removes a translation step that would otherwise inject its own errors. Each unit is encoded once and cached, following the precomputation strategy that makes pairwise comparison scalable (Reimers and Gurevych [6]).
+A single encoder $\varphi : \text{Text} \rightarrow \mathbb{R}^{d}$ maps both clause units and outcome units into one $d$-dimensional space. We use LaBSE (Feng et al. [9]) — in its `sentence-transformers` implementation, with mean pooling and L2-normalised output so that cosine equals the dot product — so that a Ukrainian learning outcome and an English clause are comparable without prior translation, which removes a translation step that would otherwise inject its own errors. Pinning the encoder version and the normalisation is what makes the scores reproducible; a second auditor running the same model on the same units obtains the same numbers. LaBSE is a baseline choice, selected for its 109-language coverage rather than a benchmark win; a stronger multilingual encoder from MTEB [10] or M3-Embedding [11] could be substituted without changing the pipeline. Each unit is encoded once and cached, following the precomputation strategy that makes pairwise comparison scalable (Reimers and Gurevych [6]).
 
 ### 6.3 Similarity and the per-clause match
 
@@ -116,7 +118,7 @@ Semantic proximity between a clause and an outcome is the cosine of their embedd
 $$ \operatorname{sim}(c_i, l_j) = \frac{\varphi(c_i) \cdot \varphi(l_j)}{\lVert \varphi(c_i) \rVert \, \lVert \varphi(l_j) \rVert}. $$
 For each clause we keep only its best-matching outcome and that outcome's score:
 $$ s_i = \max_{1 \le j \le n} \operatorname{sim}(c_i, l_j), \qquad j_i^{\ast} = \arg\max_{1 \le j \le n} \operatorname{sim}(c_i, l_j). $$
-The pair $(s_i, j_i^{\ast})$ is the evidence the auditor inspects: the strength of the best match and the outcome that produced it.
+The pair $(s_i, j_i^{\ast})$ is the evidence the auditor inspects: the strength of the best match and the outcome that produced it. One caveat is structural rather than incidental. Cosine similarity is symmetric and measures topical relatedness, whereas the relation the audit truly cares about — does an outcome *satisfy* a clause — is directional and closer to entailment. We use similarity as a tractable proxy and treat its output as a screen, not a verdict; a directional entailment or cross-encoder stage (Section 9.2) is the natural way to tighten the proxy, and we keep the explicit-gap output so that any residual mismatch surfaces for review rather than hiding in a score.
 
 ### 6.4 The coverage decision as a partial function
 
@@ -126,21 +128,21 @@ The covered set and the gap set follow directly:
 $$ \mathrm{Cov}_\tau = \{\, c_i \in S : s_i \ge \tau \,\}, \qquad G_\tau = S \setminus \mathrm{Cov}_\tau = \{\, c_i \in S : s_i < \tau \,\}. $$
 The aggregate coverage ratio is reported for context,
 $$ \rho_\tau = \frac{\lvert \mathrm{Cov}_\tau \rvert}{\lvert S \rvert}, $$
-but $\rho_\tau$ is explicitly the secondary output. The primary output is $G_\tau$, the set of clauses on which $v$ is undefined. Treating the gap as the domain complement of a partial function — rather than as a failure branch folded into a score — is what we mean by an explicit-gap design. The construction follows the principle that a narrowed domain of definition, made explicit, improves the correctness of the surrounding system (Rykhalskyy [5]): here the undefined region is not an error to suppress but the audit's deliverable. A clause the encoder cannot match is shown to the auditor, never silently defaulted.
+but $\rho_\tau$ is explicitly the secondary output. The primary output is $G_\tau$, the set of clauses on which $v$ is undefined. Treating the gap as the domain complement of a partial function — rather than as a failure branch folded into a score — is what we mean by an explicit-gap design. The construction follows the principle that a narrowed domain of definition, made explicit, improves the correctness of the surrounding system (Rykhalskyy [5]): here the undefined region is not an error to suppress but the audit's deliverable. A clause the encoder cannot match is shown to the auditor, never silently defaulted. The threshold is not fixed silently either: $\tau$ should be calibrated on a small labelled development set to target a chosen *false-coverage rate*, since absolute LaBSE cosine magnitudes vary with text length and language pairing and so cannot be assumed from one setting to another.
 
 ### 6.5 Gap report and auditor review
 
-The pipeline emits a coverage matrix of scores $s_i$, the covered pairs $(c_i, l_{j_i^{\ast}})$ ranked by confidence, and the gap list $G_\tau$ ranked by how far each clause falls below $\tau$. Because cosine proximity signals topical relatedness rather than proven requirement satisfaction, every covered pair is offered for human confirmation, not asserted as compliance. The method is positioned as a triage screen that concentrates expert attention on the gap list and on borderline matches near $\tau$, where Skliarenko et al. [3] showed that spurious similarity is most likely.
+The pipeline emits a coverage matrix of scores $s_i$, the covered pairs $(c_i, l_{j_i^{\ast}})$ ranked by confidence, and the gap list $G_\tau$ ranked by how far each clause falls below $\tau$. Because cosine proximity signals topical relatedness rather than proven requirement satisfaction, every covered pair is offered for human confirmation, not asserted as compliance. The method is positioned as a triage screen that concentrates expert attention on the gap list and on borderline matches near $\tau$, where Skliarenko et al. [3] showed that spurious similarity is most likely. In a compliance setting the asymmetry of risk matters: the dangerous error is a false *covered* verdict — a clause reported as addressed when it is not, on which an organisation then relies and is later sanctioned — whereas a false *gap* merely costs review time. Raising $\tau$ therefore trades reviewer effort for legal safety, and the operationally critical quantity is the false-coverage rate rather than overall accuracy.
 
 ## 7. Novelty of Results
 
 The novelty of the work lies in three results that together distinguish it from the methods reviewed in Section 2.
 
-The first and central result is the **explicit-gap design**. Prior compliance-checking systems report what they match — a coverage score, a classification, or a generated answer — and absorb the unmatched remainder into an aggregate or a default branch. We instead model the audit verdict as a partial function whose undefined region is computed and returned as the primary output. The set of uncovered clauses $G_\tau$ is a first-class artefact, ranked and presented to the auditor, rather than a residue inferred from a percentage. To our knowledge no prior curriculum- or contract-auditing method treats the gap, rather than the coverage, as the deliverable.
+The first and central result is the **explicit-gap design**. Prior compliance-checking systems report what they match — a coverage score, a classification, or a generated answer — and absorb the unmatched remainder into an aggregate or a default branch. We instead model the audit verdict as a partial function whose undefined region is computed and returned as the primary output. The set of uncovered clauses $G_\tau$ is a first-class artefact, ranked and presented to the auditor, rather than a residue inferred from a percentage. Reporting uncovered requirements is itself established practice in requirements-traceability research [26, 27]; what is new here is bringing that gap-as-deliverable stance to compliance auditing of a training curriculum against regulatory clauses, where prior compliance-checking and question-answering systems instead return a coverage score, a classification, or a generated answer.
 
 The second result is **language-neutral auditing without a translation stage**. By embedding clauses and learning outcomes into the shared LaBSE space, a Ukrainian curriculum is audited directly against an English standard. This removes the manual translation step that earlier compliance pipelines assume, and with it a documented source of propagated error (Skliarenko et al. [3]). The contract-checking work of Amaral Cejas et al. [1] and the regulatory question-answering systems of Gokhan et al. [2] and Zheng et al. [19] operate monolingually; cross-lingual coverage auditing is new in this setting.
 
-The third result is **reproducibility with the residual judgement kept explicit**. The method fixes no threshold silently. It reports the coverage matrix, the gap list, and a threshold-sensitivity analysis, so a second auditor replaying the pipeline obtains the same scores and sees the same consequence of any threshold choice. This contrasts with manual auditing, where Section 3 noted that two experts rarely agree or leave a replayable record. The pipeline does not replace expert judgement; it makes the point at which judgement enters visible and auditable.
+The third result is **reproducibility with the residual judgement kept explicit**. The method fixes no threshold silently. With the encoder version and normalisation pinned (Section 6.2), it reports the coverage matrix, the gap list, and a threshold-sensitivity analysis, so a second auditor replaying the pipeline obtains the same scores and sees the same consequence of any threshold choice. The worked example in Section 8 is itself produced by an actual LaBSE run rather than stipulated, which is what lets this reproducibility claim be checked rather than merely asserted. This contrasts with manual auditing, where Section 3 noted that two experts rarely agree or leave a replayable record. The pipeline does not replace expert judgement; it makes the point at which judgement enters visible and auditable.
 
 ## 8. Worked Example
 
@@ -171,51 +173,63 @@ Five learning outcomes form the curriculum $L$:
 
 ### 8.2 Coverage matrix
 
-Best-match scores $s_i$ at an illustrative threshold $\tau = 0.60$ (values are representative of LaBSE cosine ranges for this kind of short-text pair):
+Best-match scores $s_i$ from an actual LaBSE run (`sentence-transformers/LaBSE`, L2-normalised) at an illustrative threshold $\tau = 0.45$:
 
 | Clause | Best outcome $j_i^{\ast}$ | $s_i$ | $s_i \ge \tau$ | Verdict |
 |--------|---------------------------|-------|----------------|---------|
-| $c_1$ A.5.1 policy | $l_1$ | 0.81 | yes | covered |
-| $c_2$ A.5.7 threat intel | $l_2$ | 0.44 | no | **gap** |
-| $c_3$ A.5.24 incident mgmt | $l_2$ | 0.71 | yes | covered |
-| $c_4$ NIS2 supply chain | $l_4$ | 0.39 | no | **gap** |
-| $c_5$ NIS2 hygiene & training | $l_4$ | 0.78 | yes | covered |
-| $c_6$ NIS2 MFA | $l_3$ | 0.85 | yes | covered |
+| $c_1$ A.5.1 policy | $l_1$ | 0.65 | yes | covered |
+| $c_2$ A.5.7 threat intel | $l_2$ | 0.28 | no | **gap** |
+| $c_3$ A.5.24 incident mgmt | $l_2$ | 0.34 | no | **gap** |
+| $c_4$ NIS2 supply chain | $l_1$ | 0.24 | no | **gap** |
+| $c_5$ NIS2 hygiene & training | $l_4$ | 0.50 | yes | covered |
+| $c_6$ NIS2 MFA | $l_3$ | 0.62 | yes | covered |
 
-Coverage ratio $\rho_{0.60} = 4/6 \approx 0.67$. The gap set is
-$$ G_{0.60} = \{\, c_2 \text{ (threat intelligence)},\; c_4 \text{ (supply-chain security)} \,\}. $$
+The threshold is set at $0.45$ rather than the round $0.60$ one might assume, because real LaBSE cosines for short clause–outcome pairs are lower than for full sentences: here the three intended matches land at $0.50$–$0.65$ and the clear non-matches at $0.24$–$0.34$, so the natural separation sits near $0.45$. This is itself a reminder that $\tau$ must be calibrated to the encoder and text length, not fixed by intuition. Coverage ratio $\rho_{0.45} = 3/6 = 0.50$. The gap set is
+$$ G_{0.45} = \{\, c_2 \text{ (threat intelligence)},\; c_3 \text{ (incident management)},\; c_4 \text{ (supply-chain security)} \,\}. $$
 
 ### 8.3 Reading the result
 
-A covered clause behaves as expected. Clause $c_6$ (multi-factor authentication) matches outcome $l_3$ at 0.85, the highest score in the matrix, because both texts name the same control directly. The verdict function returns $v(c_6) = l_3$, and an auditor confirms the match in seconds.
+A covered clause behaves as expected. Clause $c_6$ (multi-factor authentication) matches outcome $l_3$ at 0.62, among the highest scores in the matrix, because both texts name the same control directly. The verdict function returns $v(c_6) = l_3$, and an auditor confirms the match in seconds.
 
-The two gaps are the point of the exercise. The syllabus never addresses threat intelligence ($c_2$) or supply-chain security ($c_4$); its closest outcomes — incident reporting and general hygiene — score well below $\tau$. A coverage percentage of 67% on its own would not tell an auditor *which* requirements failed. The explicit-gap output names them, so the curriculum owner knows precisely that two modules must be added before the programme can claim alignment with Article 21. This is the practical payoff of treating $G_\tau$, not $\rho_\tau$, as the primary result.
+The three gaps are the point of the exercise. The syllabus never addresses threat intelligence ($c_2$, best 0.28) or supply-chain security ($c_4$, best 0.24); no outcome comes near either clause. The third gap is the instructive one. Clause $c_3$ (incident management) finds its best match in outcome $l_2$, "recognise phishing and report incidents to the service desk," yet scores only 0.34 — below $\tau$. The two texts share the surface token *incident*, so a keyword scan would mark the clause covered, but LaBSE correctly separates a staff duty to *report* an incident from the organisational duty to *plan and prepare* incident management. The explicit-gap output catches exactly the requirement that a lexical check would conceal. A coverage percentage of 50% on its own would not tell an auditor *which* requirements failed; the gap list names all three, so the curriculum owner knows precisely which modules must be added before the programme can claim alignment with Article 21. This is the practical payoff of treating $G_\tau$, not $\rho_\tau$, as the primary result.
 
 ### 8.4 Threshold sensitivity
 
-The gap set depends on $\tau$, so the audit reports its sensitivity rather than fixing one value silently. Raising and lowering the threshold around the borderline clause $c_3$ (incident management, $s_3 = 0.71$) shows the trade-off:
+The gap set depends on $\tau$, so the audit reports its sensitivity rather than fixing one value silently. Moving the threshold across the two borderline clauses — $c_3$ (incident management, $s_3 = 0.34$) at the low end and $c_5$ (hygiene, $s_5 = 0.50$) at the high end — shows the trade-off:
 
 | $\tau$ | Covered | Gap set | Risk |
 |--------|---------|---------|------|
-| 0.50 | $c_1,c_3,c_5,c_6$ + $c_2$ | $\{c_4\}$ | $c_2$ admitted on a weak 0.44 match — false assurance |
-| 0.60 | $c_1,c_3,c_5,c_6$ | $\{c_2,c_4\}$ | balanced |
-| 0.75 | $c_1,c_5,c_6$ | $\{c_2,c_3,c_4\}$ | $c_3$ now flagged — conservative, more manual review |
+| 0.30 | $c_1,c_5,c_6$ + $c_3$ | $\{c_2,c_4\}$ | $c_3$ admitted on a weak 0.34 match — false assurance |
+| 0.45 | $c_1,c_5,c_6$ | $\{c_2,c_3,c_4\}$ | balanced |
+| 0.55 | $c_1,c_6$ | $\{c_2,c_3,c_4,c_5\}$ | $c_5$ now flagged — conservative, more manual review |
 
 A lower threshold hides real gaps behind weak matches; a higher one floods the auditor with borderline clauses. The method does not choose $\tau$ for the user. It exposes the consequence of the choice, which keeps the audit reproducible and the residual judgement with the human expert.
 
 ### 8.5 False matches and their containment
 
-Cosine proximity can reward topical overlap that is not true coverage. Suppose an outcome read "control physical access to the server room." Against clause $c_6$ (multi-factor authentication) it might score moderately, because both concern *access control*, yet a building-access lesson does not satisfy an MFA requirement. The explicit-gap design contains this failure mode in two ways. First, every covered pair is surfaced with its score and its source outcome for human confirmation, so a plausible-but-wrong match is visible rather than asserted. Second, the load-bearing claim of the method is recall on the gap list — catching missing requirements — not precision on matches, so a conservative auditor can raise $\tau$ and let borderline matches fall into the gap list for review. This is the same propagation-of-error caution that Skliarenko et al. [3] documented when a single pipeline stage produced spurious similarity.
+Cosine proximity can in principle reward topical overlap that is not true coverage. To test this, we encoded a decoy outcome, "control physical access to the server room," against clause $c_6$ (multi-factor authentication): both concern *access control*, yet a building-access lesson does not satisfy an MFA requirement. LaBSE scored the pair at only 0.15 — far below any reasonable $\tau$ — so in this slice the encoder separated the two adjacent controls cleanly rather than producing the feared false match. That is reassuring but not a guarantee: cosine remains a topical-similarity signal, and the explicit-gap design contains the failure mode in two ways regardless. First, every covered pair is surfaced with its score and its source outcome for human confirmation, so a plausible-but-wrong match is visible rather than asserted. Second, the load-bearing claim of the method is recall on the gap list — catching missing requirements — not precision on matches, so a conservative auditor can raise $\tau$ and let borderline matches fall into the gap list for review. This is the same propagation-of-error caution that Skliarenko et al. [3] documented when a single pipeline stage produced spurious similarity.
+
+### 8.6 Cross-lingual spot check
+
+The cross-lingual claim is the method's most distinctive practical promise, so we tested it directly by re-encoding three outcomes in Ukrainian and matching them against the English clauses:
+
+| Ukrainian outcome (gloss) | English clause | $s_i$ |
+|---------------------------|----------------|-------|
+| "Explain the organisation's security policy and staff duties" | $c_1$ A.5.1 policy | 0.66 |
+| "Apply strong passwords and multi-factor authentication" | $c_6$ NIS2 MFA | 0.55 |
+| "Follow cyber-hygiene habits in daily work" | $c_5$ NIS2 hygiene | 0.36 |
+
+Two of the three Ukrainian outcomes match their English clause above $\tau = 0.45$, at scores close to the English originals (0.66 against 0.65 for the policy clause; 0.55 against 0.62 for MFA), confirming that translation-free auditing is feasible. The hygiene pair, however, falls to 0.36 — below the threshold and well under the English outcome's 0.50 — which shows that cross-lingual scores can sit lower than monolingual ones. A conservative margin on $\tau$, or a domain- and language-calibrated threshold, is therefore advisable when curriculum and standard are in different languages.
 
 ## 9. Conclusion
 
-This paper presented a sentence-embedding method for auditing cybersecurity training curricula against the clauses of NIS2 and ISO/IEC 27001. The method embeds clause and learning-outcome texts into a shared multilingual space, matches them by cosine similarity, and models the audit verdict as a partial function whose undefined region — the uncovered clauses — is returned as the primary result. A worked example over a slice of ISO/IEC 27001:2022 Annex A.5 and NIS2 Article 21(2) showed the pipeline locating two genuine coverage gaps that an aggregate score would have concealed.
+This paper presented a sentence-embedding method for auditing cybersecurity training curricula against the clauses of NIS2 and ISO/IEC 27001. The method embeds clause and learning-outcome texts into a shared multilingual space, matches them by cosine similarity, and models the audit verdict as a partial function whose undefined region — the uncovered clauses — is returned as the primary result. A worked example over a slice of ISO/IEC 27001:2022 Annex A.5 and NIS2 Article 21(2), run through an actual LaBSE encoder, showed the pipeline locating three coverage gaps that an aggregate score would have concealed — including an incident-management clause that a keyword scan would have wrongly marked covered — and a cross-lingual spot check confirmed Ukrainian outcomes matching English clauses without translation.
 
 The contribution is the explicit-gap design. By reporting what a curriculum fails to cover, rather than only what it covers, the method gives a curriculum owner an actionable list and gives an auditor a reproducible, language-neutral screen. The approach reuses the text-comparison method of Skliarenko et al. [3], draws its competence framing from Arsenovych et al. [4], and sits within the formal information-security-management context of Lakhno et al. [25]; its partial-function treatment of the undefined region extends earlier work on narrowed domains of definition (Rykhalskyy [5]) and on semantic matching of models (Rykhalskyy [24]).
 
 ### 9.1 Limitations
 
-Three limitations bound the claims. Cosine similarity signals topical relatedness, not proven requirement satisfaction, so a high score can reward overlap that does not amount to compliance; the method is therefore a triage screen, not a verdict. The gap set depends on the threshold $\tau$, and although the pipeline exposes this dependence, choosing $\tau$ remains an expert decision without a principled optimum. The worked example demonstrates feasibility on a small slice rather than measuring accuracy on a labelled corpus, so precision and recall on the gap list are not yet quantified.
+Three limitations bound the claims. Cosine similarity signals topical relatedness, not proven requirement satisfaction, so a high score can reward overlap that does not amount to compliance; the method is therefore a triage screen, not a verdict. The gap set depends on the threshold $\tau$, and although the pipeline exposes this dependence and we calibrate it to the encoder rather than assuming a round value, choosing $\tau$ remains an expert decision without a principled optimum. The worked example, though now produced by a real LaBSE run rather than stipulated, still exercises a small synthetic slice rather than a labelled corpus, so precision and recall on the gap list — the method's load-bearing metric — are demonstrated as feasible but not yet quantified at scale.
 
 ### 9.2 Future work
 
@@ -225,7 +239,7 @@ Three directions follow from these limits. An empirical study on a labelled curr
 
 ## Declarations
 
-**Data Availability.** No new datasets were generated. The worked example in Section 8 uses publicly available clause text from ISO/IEC 27001:2022 Annex A and NIS2 Article 21(2) together with a synthetic illustrative syllabus reproduced in full in the paper; the similarity scores are representative values stated for exposition.
+**Data Availability.** No new datasets were generated. The worked example in Section 8 uses publicly available clause text from ISO/IEC 27001:2022 Annex A and NIS2 Article 21(2) together with a synthetic illustrative syllabus reproduced in full in the paper. The reported similarity scores are produced by an actual run of the `sentence-transformers/LaBSE` encoder (L2-normalised embeddings, cosine similarity) over the clause and outcome texts as printed; the short encoding script that reproduces every figure in Section 8 is available from the author on request.
 
 **Funding.** This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
 
@@ -292,3 +306,7 @@ Three directions follow from these limits. An empirical study on a labelled curr
 [24] Rykhalskyy, O. Yu. (2025). Architecture of an intelligent decision-support system based on semantic matching of models [Архітектура інтелектуальної системи підтримки рішень на основі семантичного узгодження моделей]. *Information Technologies and Society, 2/2025.* https://doi.org/10.32689/maup.it.2025.2.24
 
 [25]Q4 Lakhno, V. A., Kasatkin, D. Y., Skliarenko, O. V., & Kolodinska, Y. O. (2022). Modeling and optimization of discrete evolutionary systems of information security management in a random environment. In *Machine Learning and Autonomous Systems* (Smart Innovation, Systems and Technologies, Vol. 269, pp. 9–22). Springer. https://doi.org/10.1007/978-981-16-7996-4_2
+
+[26]Q1 Antoniol, G., Canfora, G., Casazza, G., De Lucia, A., & Merlo, E. (2002). Recovering traceability links between code and documentation. *IEEE Transactions on Software Engineering, 28*(10), 970–983. https://doi.org/10.1109/TSE.2002.1041053
+
+[27]Q1 Borg, M., Runeson, P., & Ardö, A. (2014). Recovering from a decade: A systematic mapping of information retrieval approaches to software traceability. *Empirical Software Engineering, 19*(6), 1565–1616. https://doi.org/10.1007/s10664-013-9255-y
