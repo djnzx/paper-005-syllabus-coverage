@@ -1,0 +1,48 @@
+clause_id,source,labse_best_score,verdict@tau=0.45,best_outcome,best_outcome_text
+c01,NIS2 21(2)(a),0.755,covered,k01,Analyse and detect information security threats in informati
+c02,NIS2 21(2)(b),0.192,GAP,e06,Maintain information security while travelling
+c03,NIS2 21(2)(c),0.297,GAP,k13,Know the main tasks and services of information protection
+c04,NIS2 21(2)(d),0.354,GAP,k13,Know the main tasks and services of information protection
+c05,NIS2 21(2)(e),0.550,covered,k01,Analyse and detect information security threats in informati
+c06,NIS2 21(2)(f),0.574,covered,e01,Apply e-mail security practices to recognise and handle mali
+c07,NIS2 21(2)(g),0.562,covered,k18,Apply knowledge of computer viruses firewalls and Internet h
+c08,NIS2 21(2)(h),0.485,covered,e01,Apply e-mail security practices to recognise and handle mali
+c09,NIS2 21(2)(i),0.382,GAP,k13,Know the main tasks and services of information protection
+c10,NIS2 21(2)(j),0.405,GAP,k09,Analyse and select antivirus software and firewalls and main
+c11,ISO A.5.1,0.521,covered,k12,Know information protection mechanisms
+c12,ISO A.5.2,0.553,covered,k13,Know the main tasks and services of information protection
+c13,ISO A.5.3,0.250,GAP,e03,Prevent identity theft when handling personal and corporate 
+c14,ISO A.5.4,0.384,GAP,e05,Maintain information security while working remotely
+c15,ISO A.5.5,0.331,GAP,e02,Identify malicious software and respond to malware infection
+c16,ISO A.5.6,0.366,GAP,k04,Select security services according to the main information-s
+c17,ISO A.5.7,0.596,covered,k01,Analyse and detect information security threats in informati
+c18,ISO A.5.8,0.498,covered,k01,Analyse and detect information security threats in informati
+c19,ISO A.5.9,0.304,GAP,e03,Prevent identity theft when handling personal and corporate 
+c20,ISO A.5.10,0.411,GAP,k13,Know the main tasks and services of information protection
+c21,ISO A.5.11,0.284,GAP,e03,Prevent identity theft when handling personal and corporate 
+c22,ISO A.5.12,0.449,GAP,k01,Analyse and detect information security threats in informati
+c23,ISO A.5.13,0.433,GAP,k03,Justifiably select information protection mechanisms in an i
+c24,ISO A.5.14,0.369,GAP,k12,Know information protection mechanisms
+c25,ISO A.5.15,0.392,GAP,k01,Analyse and detect information security threats in informati
+c26,ISO A.5.16,0.384,GAP,e03,Prevent identity theft when handling personal and corporate 
+c27,ISO A.5.17,0.352,GAP,k13,Know the main tasks and services of information protection
+c28,ISO A.5.18,0.363,GAP,k13,Know the main tasks and services of information protection
+c29,ISO A.5.19,0.503,covered,k01,Analyse and detect information security threats in informati
+c30,ISO A.5.20,0.473,covered,k01,Analyse and detect information security threats in informati
+c31,ISO A.5.21,0.551,covered,k01,Analyse and detect information security threats in informati
+c32,ISO A.5.22,0.426,GAP,k01,Analyse and detect information security threats in informati
+c33,ISO A.5.23,0.484,covered,k13,Know the main tasks and services of information protection
+c34,ISO A.5.24,0.464,covered,k01,Analyse and detect information security threats in informati
+c35,ISO A.5.25,0.567,covered,k01,Analyse and detect information security threats in informati
+c36,ISO A.5.26,0.448,GAP,k01,Analyse and detect information security threats in informati
+c37,ISO A.5.27,0.498,covered,k01,Analyse and detect information security threats in informati
+c38,ISO A.5.28,0.370,GAP,k01,Analyse and detect information security threats in informati
+c39,ISO A.5.29,0.543,covered,e05,Maintain information security while working remotely
+c40,ISO A.5.30,0.332,GAP,k04,Select security services according to the main information-s
+c41,ISO A.5.31,0.330,GAP,e02,Identify malicious software and respond to malware infection
+c42,ISO A.5.32,0.390,GAP,e01,Apply e-mail security practices to recognise and handle mali
+c43,ISO A.5.33,0.404,GAP,e03,Prevent identity theft when handling personal and corporate 
+c44,ISO A.5.34,0.473,covered,e03,Prevent identity theft when handling personal and corporate 
+c45,ISO A.5.35,0.448,GAP,k01,Analyse and detect information security threats in informati
+c46,ISO A.5.36,0.458,covered,k01,Analyse and detect information security threats in informati
+c47,ISO A.5.37,0.317,GAP,k13,Know the main tasks and services of information protection

@@ -1,0 +1,7 @@
+# caches and local copies; the deposited artifact keeps data/, src/, results/*.csv
+results/emb_cache.npz
+__pycache__/
+*.pyc
+.venv/
+data/gold_or.csv
+data/gold_a2.csv

@@ -1,0 +1,12 @@
+/Users/alexr/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Loaded 47 clauses, 50 outcomes
+  wrote env.lock
+  wrote results/predictions.csv
+
+[metrics skipped] Gold file not found: /Users/alexr/dev/pp/publications/progress/4-eu2627/experiment/data/gold_adjudicated.csv
+Predictions and cross-lingual scores were still written.
+Exp D - cross-lingual (EN vs UA outcomes)
+  wrote results/expD_crosslingual_scores.csv
+
+Done. See results/ and figures/.

@@ -1,0 +1,8 @@
+# Reproducibility: exact versions used for the reported run are in env.lock.
+# These ranges are what the code is tested against on Python 3.9 (CPU).
+sentence-transformers>=2.2.2
+scikit-learn>=1.3
+rank-bm25>=0.2.2
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7

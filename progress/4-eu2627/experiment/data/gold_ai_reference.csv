@@ -1,0 +1,48 @@
+clause_id,covered,covering_outcome_ids,note
+c01,1,k01;k03;k10,NIS2 risk analysis: threat-analysis and protection-mechanism outcomes address the risk-analysis side (borderline; policy aspect is org-level)
+c02,0,,NIS2 incident handling: only ad-hoc malware response (e02); no incident-handling outcome
+c03,0,,NIS2 business continuity/backup/DR: not taught
+c04,0,,NIS2 supply-chain security: not taught
+c05,0,,NIS2 secure acquisition/development + vulnerability handling: not taught (crypto != SDLC)
+c06,0,,NIS2 assessing effectiveness of measures: not taught
+c07,1,e01;e02;e03;e04;e05;e06;k09;k18,NIS2 basic cyber hygiene and training: directly covered by the awareness modules + Internet-hygiene outcomes
+c08,1,k06;k14;k15;k16;k17,NIS2 cryptography and encryption: strongly covered by the crypto course
+c09,0,,NIS2 HR security / access control policy / asset management: not taught
+c10,0,,"NIS2 MFA / secured communications: NOT taught (realistic gap; PKI is auth infrastructure, not end-user MFA)"
+c11,0,,A.5.1 policies for information security: selecting mechanisms is not setting policy
+c12,0,,A.5.2 roles and responsibilities: not taught
+c13,0,,A.5.3 segregation of duties: not taught
+c14,0,,A.5.4 management responsibilities: not taught
+c15,0,,A.5.5 contact with authorities: not taught
+c16,0,,A.5.6 contact with special interest groups: not taught
+c17,1,k01;k10,"A.5.7 threat intelligence: threat analysis/modelling outcomes are semantically close (borderline; modelling != intelligence collection)"
+c18,0,,A.5.8 information security in project management: not taught
+c19,0,,A.5.9 inventory of assets: not taught
+c20,0,,A.5.10 acceptable use: not taught as a policy outcome
+c21,0,,A.5.11 return of assets: not taught
+c22,0,,A.5.12 classification of information: not taught
+c23,0,,A.5.13 labelling of information: not taught
+c24,0,,A.5.14 information transfer: encryption is a means but transfer rules/agreements are not taught
+c25,0,,A.5.15 access control: not taught
+c26,0,,"A.5.16 identity management: personal identity-theft awareness (e03) is not identity lifecycle management"
+c27,1,k08;k17,"A.5.17 authentication information: PKI / X.509 outcomes touch credential infrastructure (borderline)"
+c28,0,,A.5.18 access rights: not taught
+c29,0,,A.5.19 supplier relationships: not taught
+c30,0,,A.5.20 supplier agreements: not taught
+c31,0,,A.5.21 ICT supply chain: not taught
+c32,0,,A.5.22 supplier monitoring: not taught
+c33,0,,A.5.23 cloud services: not taught
+c34,0,,A.5.24 incident management planning and preparation: not taught
+c35,0,,A.5.25 assessment of events: not taught
+c36,0,,"A.5.26 response to incidents: malware response (e02) is not a formal incident-response capability"
+c37,0,,A.5.27 learning from incidents: not taught
+c38,0,,A.5.28 collection of evidence: not taught
+c39,0,,A.5.29 information security during disruption: not taught
+c40,0,,A.5.30 ICT readiness for business continuity: not taught
+c41,0,,A.5.31 legal/regulatory requirements: not taught
+c42,0,,A.5.32 intellectual property rights: not taught
+c43,0,,A.5.33 protection of records: crypto is a means but record-protection procedures are not taught
+c44,1,e03,"A.5.34 privacy and PII protection: identity-theft / personal-data outcome is a partial cover (borderline)"
+c45,0,,A.5.35 independent review: not taught
+c46,0,,A.5.36 compliance with policies: not taught
+c47,0,,A.5.37 documented operating procedures: not taught

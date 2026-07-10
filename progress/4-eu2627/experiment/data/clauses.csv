@@ -1,0 +1,48 @@
+clause_id,source,framework,text_en,copyright_note
+c01,NIS2 21(2)(a),NIS2,policies on risk analysis and information system security,public-eu-law-verbatim
+c02,NIS2 21(2)(b),NIS2,incident handling,public-eu-law-verbatim
+c03,NIS2 21(2)(c),NIS2,"business continuity, such as backup management and disaster recovery, and crisis management",public-eu-law-verbatim
+c04,NIS2 21(2)(d),NIS2,"supply chain security, including security-related aspects concerning the relationships between each entity and its direct suppliers or service providers",public-eu-law-verbatim
+c05,NIS2 21(2)(e),NIS2,"security in network and information systems acquisition, development and maintenance, including vulnerability handling and disclosure",public-eu-law-verbatim
+c06,NIS2 21(2)(f),NIS2,policies and procedures to assess the effectiveness of cybersecurity risk-management measures,public-eu-law-verbatim
+c07,NIS2 21(2)(g),NIS2,basic cyber hygiene practices and cybersecurity training,public-eu-law-verbatim
+c08,NIS2 21(2)(h),NIS2,"policies and procedures regarding the use of cryptography and, where appropriate, encryption",public-eu-law-verbatim
+c09,NIS2 21(2)(i),NIS2,"human resources security, access control policies and asset management",public-eu-law-verbatim
+c10,NIS2 21(2)(j),NIS2,"the use of multi-factor authentication or continuous authentication solutions, secured voice, video and text communications and secured emergency communication systems within the entity",public-eu-law-verbatim
+c11,ISO A.5.1,ISO27001,Policies for information security: management defines, approves, publishes and communicates a set of information security policies and reviews them at planned intervals,title-public+objective-paraphrase
+c12,ISO A.5.2,ISO27001,Information security roles and responsibilities: security responsibilities are defined and allocated according to organisational needs,title-public+objective-paraphrase
+c13,ISO A.5.3,ISO27001,Segregation of duties: conflicting duties and areas of responsibility are separated to reduce unauthorised or unintentional modification or misuse of assets,title-public+objective-paraphrase
+c14,ISO A.5.4,ISO27001,Management responsibilities: management requires all personnel to apply information security in accordance with the established policies and procedures,title-public+objective-paraphrase
+c15,ISO A.5.5,ISO27001,Contact with authorities: the organisation establishes and maintains contact with relevant authorities,title-public+objective-paraphrase
+c16,ISO A.5.6,ISO27001,Contact with special interest groups: the organisation maintains contact with special interest groups and professional security forums,title-public+objective-paraphrase
+c17,ISO A.5.7,ISO27001,Threat intelligence: information about information security threats is collected and analysed to produce threat intelligence,title-public+objective-paraphrase
+c18,ISO A.5.8,ISO27001,Information security in project management: information security is integrated into project management,title-public+objective-paraphrase
+c19,ISO A.5.9,ISO27001,Inventory of information and other associated assets: an inventory of information and associated assets including owners is developed and maintained,title-public+objective-paraphrase
+c20,ISO A.5.10,ISO27001,Acceptable use of information and other associated assets: rules for acceptable use and handling of information and assets are identified and implemented,title-public+objective-paraphrase
+c21,ISO A.5.11,ISO27001,Return of assets: personnel and external parties return organisational assets on termination of their employment or agreement,title-public+objective-paraphrase
+c22,ISO A.5.12,ISO27001,Classification of information: information is classified according to confidentiality integrity availability and relevant requirements,title-public+objective-paraphrase
+c23,ISO A.5.13,ISO27001,Labelling of information: an appropriate set of procedures for information labelling is developed and implemented,title-public+objective-paraphrase
+c24,ISO A.5.14,ISO27001,Information transfer: rules procedures and agreements protect information transfer for all types of transfer facilities,title-public+objective-paraphrase
+c25,ISO A.5.15,ISO27001,Access control: rules to control physical and logical access to information and assets are established based on business and security requirements,title-public+objective-paraphrase
+c26,ISO A.5.16,ISO27001,Identity management: the full life cycle of identities is managed,title-public+objective-paraphrase
+c27,ISO A.5.17,ISO27001,Authentication information: allocation and management of authentication information such as passwords is controlled and users are advised to handle it properly,title-public+objective-paraphrase
+c28,ISO A.5.18,ISO27001,Access rights: access rights to information and assets are provisioned reviewed modified and removed according to policy,title-public+objective-paraphrase
+c29,ISO A.5.19,ISO27001,Information security in supplier relationships: processes and procedures manage the information security risks associated with the use of supplier products and services,title-public+objective-paraphrase
+c30,ISO A.5.20,ISO27001,Addressing information security within supplier agreements: relevant information security requirements are established and agreed with each supplier,title-public+objective-paraphrase
+c31,ISO A.5.21,ISO27001,Managing information security in the ICT supply chain: processes manage information security risks in the ICT products and services supply chain,title-public+objective-paraphrase
+c32,ISO A.5.22,ISO27001,Monitoring review and change management of supplier services: the organisation monitors reviews and manages changes to supplier information security practices and service delivery,title-public+objective-paraphrase
+c33,ISO A.5.23,ISO27001,Information security for use of cloud services: acquisition use management and exit from cloud services follow information security requirements,title-public+objective-paraphrase
+c34,ISO A.5.24,ISO27001,Information security incident management planning and preparation: the organisation plans and prepares for managing incidents by defining processes roles and responsibilities,title-public+objective-paraphrase
+c35,ISO A.5.25,ISO27001,Assessment and decision on information security events: the organisation assesses information security events and decides whether to categorise them as incidents,title-public+objective-paraphrase
+c36,ISO A.5.26,ISO27001,Response to information security incidents: information security incidents are responded to in accordance with documented procedures,title-public+objective-paraphrase
+c37,ISO A.5.27,ISO27001,Learning from information security incidents: knowledge gained from incidents is used to strengthen and improve information security controls,title-public+objective-paraphrase
+c38,ISO A.5.28,ISO27001,Collection of evidence: procedures for identification collection acquisition and preservation of evidence related to incidents are established,title-public+objective-paraphrase
+c39,ISO A.5.29,ISO27001,Information security during disruption: the organisation plans how to maintain information security at an appropriate level during disruption,title-public+objective-paraphrase
+c40,ISO A.5.30,ISO27001,ICT readiness for business continuity: ICT readiness is planned implemented maintained and tested based on business continuity objectives,title-public+objective-paraphrase
+c41,ISO A.5.31,ISO27001,Legal statutory regulatory and contractual requirements: relevant requirements and the organisation approach to meeting them are identified documented and kept up to date,title-public+objective-paraphrase
+c42,ISO A.5.32,ISO27001,Intellectual property rights: appropriate procedures protect intellectual property rights,title-public+objective-paraphrase
+c43,ISO A.5.33,ISO27001,Protection of records: records are protected from loss destruction falsification unauthorised access and unauthorised release,title-public+objective-paraphrase
+c44,ISO A.5.34,ISO27001,Privacy and protection of personally identifiable information: the organisation identifies and meets requirements for the preservation of privacy and protection of PII,title-public+objective-paraphrase
+c45,ISO A.5.35,ISO27001,Independent review of information security: the approach to managing information security is reviewed independently at planned intervals or when significant changes occur,title-public+objective-paraphrase
+c46,ISO A.5.36,ISO27001,Compliance with policies rules and standards for information security: compliance with the organisation information security policy and standards is regularly reviewed,title-public+objective-paraphrase
+c47,ISO A.5.37,ISO27001,Documented operating procedures: operating procedures for information processing facilities are documented and made available to personnel who need them,title-public+objective-paraphrase
